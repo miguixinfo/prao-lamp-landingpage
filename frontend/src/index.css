@@ -1,7 +1,16 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Interdimensional';
+  src: url('/assets/Fonts/interdimensional/INTERDIM.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Interdimensional', Georgia, serif;
+  --font-script: 'Dancing Script', cursive;
   --font-mono: 'JetBrains Mono', monospace;
   --font-sans: 'Inter', system-ui, sans-serif;
   --color-gold: #b9a76f;
@@ -9,20 +18,12 @@
 }
 
 :root {
-  --bg: #f4f1ec;
-  --fg: #1a1a1a;
-  --fg-soft: #5a5856;
-  --line: rgba(26, 26, 26, 0.14);
-  --surface: #ece8e1;
+  --bg: #015b6d;
+  --fg: #e2f0f3;
+  --fg-soft: #7ab8c4;
+  --line: rgba(255, 255, 255, 0.14);
+  --surface: #016273;
   --theme-t: 1200ms cubic-bezier(0.65, 0.05, 0.36, 1);
-}
-
-html.night {
-  --bg: #0a0a0a;
-  --fg: #e8e6e1;
-  --fg-soft: #8a8884;
-  --line: rgba(232, 230, 225, 0.14);
-  --surface: #141414;
 }
 
 *,
@@ -47,10 +48,14 @@ body {
   overflow-x: hidden;
 }
 
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
 /* Carousel: calc-based widths not cleanly expressible with Tailwind arbitrary values */
 .carousel-slide {
-  flex: 0 0 calc((100% - 48px) / 3);
-  aspect-ratio: 4 / 5;
+  flex: 0 0 calc((100% - 64px) / 3);
+  aspect-ratio: 1 / 1;
   position: relative;
   overflow: hidden;
 }

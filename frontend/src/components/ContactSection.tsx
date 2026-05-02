@@ -23,14 +23,12 @@ export function ContactSection({ onOpenModal }: Props) {
       <h2
         className="font-display font-light m-0 mb-8"
         style={{
-          fontSize: 'clamp(48px, 8vw, 128px)',
-          lineHeight: 1.0,
-          letterSpacing: '-0.015em',
+          fontSize: 'clamp(32px, 4.5vw, 72px)',
+          lineHeight: 1.15,
+          letterSpacing: '0em',
         }}
       >
-        Deja tu
-        <br />
-        <em className="text-gold">rastro</em>.
+        Deja tu <em className="text-gold">rastro</em>.
       </h2>
 
       <p

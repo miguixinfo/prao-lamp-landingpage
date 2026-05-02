@@ -66,16 +66,33 @@ export function Hero() {
 
         {/* Title */}
         <h1
-          className="font-display font-light m-0"
+          className="m-0"
           style={{
-            fontSize: 'clamp(56px, 9vw, 148px)',
-            lineHeight: 0.95,
-            letterSpacing: '-0.015em',
+            fontFamily: "'Barlow Condensed', sans-serif",
+            fontWeight: 900,
+            fontSize: 'clamp(48px, 7vw, 112px)',
+            lineHeight: 0.88,
+            letterSpacing: '0em',
           }}
         >
-          El arte de
-          <br />
-          habitar la <em className="text-gold">luz</em>.
+          <span style={{ display: 'block', whiteSpace: 'nowrap', fontStyle: 'italic' }}>¿Qué forma</span>
+          <span style={{ display: 'block', whiteSpace: 'nowrap' }}>tiene</span>
+          <span
+            style={{
+              display: 'block',
+              whiteSpace: 'nowrap',
+              marginTop: '-0.28em',
+              fontFamily: 'var(--font-script)',
+              fontWeight: 700,
+              fontStyle: 'normal',
+              fontSize: '1.5em',
+              color: '#b9a76f',
+              position: 'relative',
+              zIndex: 1,
+            }}
+          >
+            la luz?
+          </span>
         </h1>
 
         {/* Meta */}

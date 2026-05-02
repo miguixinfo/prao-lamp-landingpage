@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { useTheme, type Theme } from '../context/ThemeContext'
+import { type Theme } from '../context/ThemeContext'
 
 type LampMode = Theme
 
@@ -8,33 +8,33 @@ interface LampImage {
   cap: string
 }
 
+const DAY_PATH = '/assets/Ascendente%20Modo%20D%C3%ADa'
+const NIGHT_PATH = '/assets/Ascendente%20Modo%20Noche'
+
 const IMAGES: Record<LampMode, LampImage[]> = {
   day: [
-    { src: '/assets/lamp-day-1.png', cap: 'Configuración · torre' },
-    { src: '/assets/lamp-day-2.png', cap: 'Configuración · cruce' },
-    { src: '/assets/lamp-day-1.png', cap: 'Detalle · acanalado' },
-    { src: '/assets/lamp-day-2.png', cap: 'Vista frontal' },
+    { src: `${DAY_PATH}/asc1.png`, cap: 'Configuración · 01' },
+    { src: `${DAY_PATH}/asc2.png`, cap: 'Configuración · 02' },
+    { src: `${DAY_PATH}/asc3.png`, cap: 'Configuración · 03' },
+    { src: `${DAY_PATH}/asc4.png`, cap: 'Configuración · 04' },
+    { src: `${DAY_PATH}/asc5.png`, cap: 'Detalle · 05' },
+    { src: `${DAY_PATH}/asc6.png`, cap: 'Detalle · 06' },
   ],
   night: [
-    { src: '/assets/lamp-night-1.png', cap: 'Configuración · torre' },
-    { src: '/assets/lamp-night-2.png', cap: 'Configuración · horizonte' },
-    { src: '/assets/lamp-night-1.png', cap: 'Detalle · luz' },
-    { src: '/assets/lamp-night-2.png', cap: 'Vista cenital' },
+    { src: `${NIGHT_PATH}/n1.png`, cap: 'Configuración · 01' },
+    { src: `${NIGHT_PATH}/n2.png`, cap: 'Configuración · 02' },
+    { src: `${NIGHT_PATH}/n3.png`, cap: 'Configuración · 03' },
+    { src: `${NIGHT_PATH}/n4.png`, cap: 'Configuración · 04' },
+    { src: `${NIGHT_PATH}/n5.png`, cap: 'Detalle · 05' },
+    { src: `${NIGHT_PATH}/n6.png`, cap: 'Detalle · 06' },
   ],
 }
 
 export function LampSection() {
-  const { theme } = useTheme()
   const [lampMode, setLampMode] = useState<LampMode>('day')
   const [idx, setIdx] = useState(0)
   const trackRef = useRef<HTMLDivElement>(null)
   const [slideW, setSlideW] = useState(0)
-
-  // Keep lamp mode in sync with global theme
-  useEffect(() => {
-    setLampMode(theme)
-    setIdx(0)
-  }, [theme])
 
   const images = IMAGES[lampMode]
   const current = Math.max(0, Math.min(idx, images.length - 1))
@@ -46,7 +46,6 @@ export function LampSection() {
   }, [])
 
   useEffect(() => {
-    // Recalculate after DOM update when mode or images change
     const id = requestAnimationFrame(calcSlideWidth)
     window.addEventListener('resize', calcSlideWidth)
     return () => {
@@ -60,8 +59,8 @@ export function LampSection() {
     setIdx(0)
   }
 
-  const sectionColor = isNight ? '#e8e6e1' : 'var(--fg)'
-  const sectionBg = isNight ? '#060606' : 'transparent'
+  const sectionColor = 'var(--fg)'
+  const sectionBg = isNight ? '#013a4a' : 'transparent'
 
   return (
     <section
@@ -87,9 +86,9 @@ export function LampSection() {
           <h2
             className="font-display font-light m-0"
             style={{
-              fontSize: 'clamp(42px, 5.5vw, 86px)',
-              lineHeight: 1.0,
-              letterSpacing: '-0.01em',
+              fontSize: 'clamp(28px, 3.5vw, 56px)',
+              lineHeight: 1.15,
+              letterSpacing: '0em',
             }}
           >
             Una lámpara
@@ -135,7 +134,7 @@ export function LampSection() {
                     letterSpacing: 'inherit',
                     textTransform: 'inherit',
                     background: active ? 'currentColor' : 'transparent',
-                    color: active ? (isNight ? '#060606' : 'var(--bg)') : 'currentColor',
+                    color: active ? 'var(--bg)' : 'currentColor',
                     transition: 'background 400ms, color 400ms',
                   }}
                 >

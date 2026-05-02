@@ -57,14 +57,12 @@ export function RoomsSection() {
           <h2
             className="font-display font-light m-0"
             style={{
-              fontSize: 'clamp(42px, 5.5vw, 86px)',
-              lineHeight: 1.0,
-              letterSpacing: '-0.01em',
+              fontSize: 'clamp(28px, 3.5vw, 56px)',
+              lineHeight: 1.15,
+              letterSpacing: '0em',
             }}
           >
-            Cómo te
-            <br />
-            quedaría.
+            Cómo te quedaría.
           </h2>
         </div>
         <div
