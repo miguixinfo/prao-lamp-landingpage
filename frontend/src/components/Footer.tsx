@@ -3,9 +3,9 @@ export function Footer() {
     <footer
       className="flex justify-between items-center px-10 py-8 border-t font-mono text-[10px] tracking-[0.3em] uppercase max-[880px]:flex-col max-[880px]:gap-6 max-[880px]:text-center"
       style={{
+        background: '#000000',
         borderColor: 'var(--line)',
         opacity: 0.7,
-        transition: 'border-color var(--theme-t)',
       }}
     >
       <div>© 2026 · Prao Estudio</div>

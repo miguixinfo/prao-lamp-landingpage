@@ -9,8 +9,8 @@ export function ContactSection({ onOpenModal }: Props) {
       className="relative border-t text-center"
       style={{
         padding: 'clamp(100px, 12vw, 180px) clamp(24px, 4vw, 60px) clamp(120px, 14vw, 200px)',
+        background: '#000000',
         borderColor: 'var(--line)',
-        transition: 'border-color var(--theme-t)',
       }}
     >
       <div

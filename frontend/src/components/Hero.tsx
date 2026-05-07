@@ -1,31 +1,15 @@
 export function Hero() {
   return (
     <section className="relative min-h-screen grid overflow-hidden" style={{ gridTemplateRows: '1fr auto' }}>
-      {/* Background: grid pattern + radial glow */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'var(--surface)',
-          transition: 'background var(--theme-t)',
-        }}
-      >
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              repeating-linear-gradient(90deg, transparent 0 40px, color-mix(in oklab, var(--fg) 5%, transparent) 40px 41px),
-              radial-gradient(ellipse at center, color-mix(in oklab, var(--fg) 6%, transparent) 0%, transparent 70%)
-            `,
-          }}
-        />
-        {/* Video placeholder label */}
-        <div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.3em] uppercase whitespace-nowrap"
-          style={{ color: 'var(--fg)', opacity: 0.35 }}
-        >
-          video / loop · proceso de creación
-        </div>
-      </div>
+      {/* Background video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/assets/Definitivo.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
 
       {/* Vignette */}
       <div
@@ -64,40 +48,9 @@ export function Hero() {
           <span>Preventa abierta · Castellana, 12 mayo</span>
         </div>
 
-        {/* Title */}
-        <h1
-          className="m-0"
-          style={{
-            fontFamily: "'Barlow Condensed', sans-serif",
-            fontWeight: 900,
-            fontSize: 'clamp(48px, 7vw, 112px)',
-            lineHeight: 0.88,
-            letterSpacing: '0em',
-          }}
-        >
-          <span style={{ display: 'block', whiteSpace: 'nowrap', fontStyle: 'italic' }}>¿Qué forma</span>
-          <span style={{ display: 'block', whiteSpace: 'nowrap' }}>tiene</span>
-          <span
-            style={{
-              display: 'block',
-              whiteSpace: 'nowrap',
-              marginTop: '-0.28em',
-              fontFamily: 'var(--font-script)',
-              fontWeight: 700,
-              fontStyle: 'normal',
-              fontSize: '1.5em',
-              color: '#b9a76f',
-              position: 'relative',
-              zIndex: 1,
-            }}
-          >
-            la luz?
-          </span>
-        </h1>
-
         {/* Meta */}
         <div
-          className="justify-self-end text-right max-w-[320px] max-[880px]:justify-self-start max-[880px]:text-left"
+          className="col-start-2 justify-self-end text-right max-w-[320px] max-[880px]:col-start-1 max-[880px]:justify-self-start max-[880px]:text-left"
         >
           <p
             className="text-sm mb-4"
