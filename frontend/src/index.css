@@ -47,9 +47,6 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  text-wrap: balance;
-}
 
 /* Carousel: calc-based widths not cleanly expressible with Tailwind arbitrary values */
 .carousel-slide {

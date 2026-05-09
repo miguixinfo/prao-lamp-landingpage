@@ -8,7 +8,7 @@ export function NightSection() {
   return (
     <section
       style={{
-        background: 'linear-gradient(to bottom, #013A4A 0%, #000000 42%)',
+        background: '#010012',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -34,29 +34,17 @@ export function NightSection() {
         </div>
         <h2
           style={{
-            fontFamily: "'Barlow Condensed', sans-serif",
-            fontWeight: 800,
-            fontSize: 'clamp(40px, 6vw, 96px)',
-            lineHeight: 0.9,
-            letterSpacing: '-0.01em',
-            color: 'var(--fg)',
+            fontFamily: 'var(--font-display)',
+            fontWeight: 'normal',
+            fontSize: 'clamp(32px, 5vw, 80px)',
+            lineHeight: 1,
+            letterSpacing: '0.01em',
+            color: '#b9a76f',
             margin: 0,
+            textTransform: 'uppercase',
           }}
         >
-          <span style={{ display: 'block', fontStyle: 'italic' }}>Donde la forma</span>
-          <span style={{ display: 'block' }}>se convierte en{' '}
-            <span
-              style={{
-                fontFamily: 'var(--font-script)',
-                fontWeight: 700,
-                fontStyle: 'normal',
-                fontSize: '1.18em',
-                color: '#b9a76f',
-              }}
-            >
-              luz
-            </span>
-          </span>
+          MODO NOCHE
         </h2>
       </div>
 

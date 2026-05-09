@@ -1,3 +1,5 @@
+import { useScrollColor } from '../hooks/useScrollColor'
+
 const blocks = [
   {
     num: '01',
@@ -17,11 +19,16 @@ const blocks = [
 ]
 
 export function MemoriaSection() {
+  // triggerOffset 0.6: transition starts while section is entering view,
+  // reaches black well before MemoriaSection finishes — so NightSection arrives already dark
+  const sectionRef = useScrollColor<HTMLElement>('#013A4A', '#010012', 0.6)
+
   return (
     <section
+      ref={sectionRef}
       id="memoria"
       style={{
-        background: 'var(--bg)',
+        background: '#013A4A',
         padding: 'clamp(80px, 10vw, 140px) clamp(24px, 4vw, 60px)',
       }}
     >

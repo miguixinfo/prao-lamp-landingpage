@@ -5,7 +5,7 @@ export function Navbar() {
       style={{
         background: 'color-mix(in oklab, var(--bg) 60%, transparent)',
         borderColor: 'var(--line)',
-        transition: 'background var(--theme-t), border-color var(--theme-t)',
+        transition: 'background 0.1s ease, border-color 0.1s ease',
       }}
     >
       {/* Brand */}

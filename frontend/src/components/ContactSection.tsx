@@ -9,7 +9,7 @@ export function ContactSection({ onOpenModal }: Props) {
       className="relative border-t text-center"
       style={{
         padding: 'clamp(100px, 12vw, 180px) clamp(24px, 4vw, 60px) clamp(120px, 14vw, 200px)',
-        background: '#000000',
+        background: '#010012',
         borderColor: 'var(--line)',
       }}
     >
@@ -26,9 +26,10 @@ export function ContactSection({ onOpenModal }: Props) {
           fontSize: 'clamp(32px, 4.5vw, 72px)',
           lineHeight: 1.15,
           letterSpacing: '0em',
+          color: '#b9a76f',
         }}
       >
-        Deja tu <em className="text-gold">rastro</em>.
+        Deja tu rastro.
       </h2>
 
       <p

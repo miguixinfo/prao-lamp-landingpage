@@ -45,7 +45,7 @@ export function Hero() {
           style={{ opacity: 0.55 }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-gold inline-block shrink-0" />
-          <span>Preventa abierta · Castellana, 12 mayo</span>
+          <span>Preventa abierta · Escuela de Arquitectura de Toledo</span>
         </div>
 
         {/* Meta */}
@@ -56,7 +56,7 @@ export function Hero() {
             className="text-sm mb-4"
             style={{ lineHeight: 1.6, opacity: 0.75 }}
           >
-            Una lámpara modular nacida en la Escuela de Arquitectura de Toledo. Siete piezas. Dos
+            Una lámpara modular nacida en la Escuela de Arquitectura de Toledo. Nueve piezas. Dos
             focos. Una forma que tú decides.
           </p>
           <span
