@@ -6,14 +6,11 @@ interface Props {
 }
 
 interface FormData {
-  nombre: string
-  apellidos: string
+  fullName: string
   email: string
-  ciudad: string
-  nota: string
 }
 
-const EMPTY_FORM: FormData = { nombre: '', apellidos: '', email: '', ciudad: '', nota: '' }
+const EMPTY_FORM: FormData = { fullName: '', email: '' }
 
 function Field({
   label,
@@ -51,6 +48,8 @@ const inputStyle: React.CSSProperties = {
 export function ContactModal({ isOpen, onClose }: Props) {
   const [form, setForm] = useState<FormData>(EMPTY_FORM)
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   // Close on Escape
   useEffect(() => {
@@ -67,14 +66,40 @@ export function ContactModal({ isOpen, onClose }: Props) {
       const id = setTimeout(() => {
         setForm(EMPTY_FORM)
         setSubmitted(false)
+        setError(null)
       }, 400)
       return () => clearTimeout(id)
     }
   }, [isOpen])
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError(null)
+
+    try {
+      const username = import.meta.env.VITE_CONTACT_WEBHOOK_USERNAME
+      const password = import.meta.env.VITE_CONTACT_WEBHOOK_PASSWORD
+      const auth = btoa(`${username}:${password}`)
+
+      const response = await fetch(import.meta.env.VITE_CONTACT_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${auth}`,
+        },
+        body: JSON.stringify(form),
+      })
+
+      if (!response.ok) throw new Error('Error al enviar el formulario')
+
+      setSubmitted(true)
+    } catch (err) {
+      console.error(err)
+      setError('Algo ha fallado. Por favor, inténtalo de nuevo.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleChange = (field: keyof FormData) => (
@@ -145,29 +170,17 @@ export function ContactModal({ isOpen, onClose }: Props) {
             </p>
 
             <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-2 max-[880px]:grid-cols-1 gap-6">
-                <Field label="Nombre">
-                  <input
-                    type="text"
-                    required
-                    value={form.nombre}
-                    onChange={handleChange('nombre')}
-                    style={inputStyle}
-                    onFocus={focusStyle}
-                    onBlur={blurStyle}
-                  />
-                </Field>
-                <Field label="Apellidos">
-                  <input
-                    type="text"
-                    value={form.apellidos}
-                    onChange={handleChange('apellidos')}
-                    style={inputStyle}
-                    onFocus={focusStyle}
-                    onBlur={blurStyle}
-                  />
-                </Field>
-              </div>
+              <Field label="Nombre">
+                <input
+                  type="text"
+                  required
+                  value={form.fullName}
+                  onChange={handleChange('fullName')}
+                  style={inputStyle}
+                  onFocus={focusStyle}
+                  onBlur={blurStyle}
+                />
+              </Field>
               <Field label="Email">
                 <input
                   type="email"
@@ -179,48 +192,38 @@ export function ContactModal({ isOpen, onClose }: Props) {
                   onBlur={blurStyle}
                 />
               </Field>
-              <Field label="Ciudad">
-                <input
-                  type="text"
-                  placeholder="opcional"
-                  value={form.ciudad}
-                  onChange={handleChange('ciudad')}
-                  style={inputStyle}
-                  onFocus={focusStyle}
-                  onBlur={blurStyle}
-                />
-              </Field>
-              <Field label="Una nota">
-                <textarea
-                  placeholder="opcional · cuéntanos lo que quieras"
-                  value={form.nota}
-                  onChange={handleChange('nota')}
-                  style={{ ...inputStyle, minHeight: 64, resize: 'none' }}
-                  onFocus={focusStyle}
-                  onBlur={blurStyle}
-                />
-              </Field>
+
+              {error && (
+                <p className="text-red-500 text-[11px] mb-4 text-center font-mono uppercase tracking-wider">
+                  {error}
+                </p>
+              )}
 
               <button
                 type="submit"
+                disabled={loading}
                 className="mt-3 w-full py-[18px] border-none cursor-pointer font-mono text-[11px] tracking-[0.35em] uppercase"
                 style={{
-                  background: 'var(--fg)',
+                  background: loading ? 'var(--line)' : 'var(--fg)',
                   color: 'var(--bg)',
                   transition: 'background 0.3s, color 0.3s',
+                  opacity: loading ? 0.7 : 1,
+                  pointerEvents: loading ? 'none' : 'auto',
                 }}
                 onMouseEnter={e => {
+                  if (loading) return
                   const el = e.currentTarget as HTMLButtonElement
                   el.style.background = '#b9a76f'
                   el.style.color = '#0a0a0a'
                 }}
                 onMouseLeave={e => {
+                  if (loading) return
                   const el = e.currentTarget as HTMLButtonElement
                   el.style.background = 'var(--fg)'
                   el.style.color = 'var(--bg)'
                 }}
               >
-                Enviar
+                {loading ? 'Enviando...' : 'Enviar'}
               </button>
             </form>
           </>
