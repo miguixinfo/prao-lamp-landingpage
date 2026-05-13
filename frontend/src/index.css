@@ -84,8 +84,17 @@ body {
 
 /* Preventa pulsing dot */
 @keyframes dot-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.7); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.7);
+  }
 }
 
 .dot-pulse {
@@ -94,6 +103,59 @@ body {
 
 /* Night lamp floating animation */
 @keyframes lamp-float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-16px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+/* ProductMemoriaSection — product block responsive layout */
+.product-block-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.product-block-grid {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: stretch;
+  height: calc(100% - 80px);
+}
+
+.product-carousel-col {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 24px 0;
+}
+
+@media (max-width: 880px) {
+  .product-block-wrapper {
+    height: auto;
+    align-items: flex-start;
+    padding-top: 50px;
+    padding-bottom: 56px;
+  }
+
+  .product-block-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+    align-items: start;
+  }
+
+  .product-text-col {
+    order: -1;
+  }
+
+  .product-carousel-col {
+    height: min(72vw, 460px);
+    padding: 0;
+  }
 }

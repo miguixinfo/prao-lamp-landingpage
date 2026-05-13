@@ -40,29 +40,20 @@ export function ProductMemoriaSection() {
     >
       {/* ── PRODUCT BLOCK (carousel + description) ── */}
       <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '0 clamp(24px, 4vw, 60px)',
-          boxSizing: 'border-box',
-        }}
+        className="product-block-wrapper"
+        style={{ paddingLeft: 'clamp(24px, 4vw, 60px)', paddingRight: 'clamp(24px, 4vw, 60px)' }}
       >
         <div
-          className="max-[880px]:grid-cols-1 max-[880px]:overflow-y-auto"
+          className="product-block-grid"
           style={{
-            display: 'grid',
-            gridTemplateColumns: '55fr 45fr',
             gap: 'clamp(32px, 4vw, 64px)',
-            alignItems: 'stretch',
             maxWidth: 1400,
             width: '100%',
             margin: '0 auto',
-            height: 'calc(100% - 80px)',
           }}
         >
           {/* LEFT — Carousel */}
-          <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0, padding: '24px 0' }}>
+          <div className="product-carousel-col">
             <div
               style={{
                 position: 'relative',
@@ -135,7 +126,7 @@ export function ProductMemoriaSection() {
 
           {/* RIGHT — Description */}
           <div
-            className="max-[880px]:pl-0"
+            className="product-text-col"
             style={{ paddingLeft: 'clamp(0px, 2vw, 32px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
           >
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#b9a76f', marginBottom: 18 }}>
