@@ -19,8 +19,8 @@ export function Navbar() {
       <div className="flex gap-10 items-center max-[880px]:hidden">
         {[
           ['Lámpara', '#lampara'],
-          ['Espacios', '#espacios'],
-          ['Estudio', '#estudio'],
+          ['Memoria', '#memoria'],
+          ['Noche', '#noche'],
           ['Contacto', '#contacto'],
         ].map(([label, href]) => (
           <a

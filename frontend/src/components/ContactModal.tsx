@@ -7,13 +7,10 @@ interface Props {
 
 interface FormData {
   nombre: string
-  apellidos: string
   email: string
-  ciudad: string
-  nota: string
 }
 
-const EMPTY_FORM: FormData = { nombre: '', apellidos: '', email: '', ciudad: '', nota: '' }
+const EMPTY_FORM: FormData = { nombre: '', email: '' }
 
 function Field({
   label,
@@ -145,29 +142,17 @@ export function ContactModal({ isOpen, onClose }: Props) {
             </p>
 
             <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-2 max-[880px]:grid-cols-1 gap-6">
-                <Field label="Nombre">
-                  <input
-                    type="text"
-                    required
-                    value={form.nombre}
-                    onChange={handleChange('nombre')}
-                    style={inputStyle}
-                    onFocus={focusStyle}
-                    onBlur={blurStyle}
-                  />
-                </Field>
-                <Field label="Apellidos">
-                  <input
-                    type="text"
-                    value={form.apellidos}
-                    onChange={handleChange('apellidos')}
-                    style={inputStyle}
-                    onFocus={focusStyle}
-                    onBlur={blurStyle}
-                  />
-                </Field>
-              </div>
+              <Field label="Nombre">
+                <input
+                  type="text"
+                  required
+                  value={form.nombre}
+                  onChange={handleChange('nombre')}
+                  style={inputStyle}
+                  onFocus={focusStyle}
+                  onBlur={blurStyle}
+                />
+              </Field>
               <Field label="Email">
                 <input
                   type="email"
@@ -175,27 +160,6 @@ export function ContactModal({ isOpen, onClose }: Props) {
                   value={form.email}
                   onChange={handleChange('email')}
                   style={inputStyle}
-                  onFocus={focusStyle}
-                  onBlur={blurStyle}
-                />
-              </Field>
-              <Field label="Ciudad">
-                <input
-                  type="text"
-                  placeholder="opcional"
-                  value={form.ciudad}
-                  onChange={handleChange('ciudad')}
-                  style={inputStyle}
-                  onFocus={focusStyle}
-                  onBlur={blurStyle}
-                />
-              </Field>
-              <Field label="Una nota">
-                <textarea
-                  placeholder="opcional · cuéntanos lo que quieras"
-                  value={form.nota}
-                  onChange={handleChange('nota')}
-                  style={{ ...inputStyle, minHeight: 64, resize: 'none' }}
                   onFocus={focusStyle}
                   onBlur={blurStyle}
                 />

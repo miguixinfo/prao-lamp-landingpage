@@ -7,6 +7,7 @@ const lamps = [
 export function NightSection() {
   return (
     <section
+      id="noche"
       style={{
         background: '#010012',
         display: 'flex',
