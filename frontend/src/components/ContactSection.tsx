@@ -29,7 +29,7 @@ export function ContactSection({ onOpenModal }: Props) {
           color: '#b9a76f',
         }}
       >
-        Deja tu rastro.
+        Solicita tu unidad.
       </h2>
 
       <p

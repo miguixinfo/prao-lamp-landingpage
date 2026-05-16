@@ -51,14 +51,9 @@ export function NightSection() {
 
       {/* Images */}
       <div
-        className="max-[880px]:flex-col"
+        className="flex flex-row max-[880px]:flex-col items-end max-[880px]:items-center justify-center w-full"
         style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'flex-end',
-          justifyContent: 'center',
-          gap: 'clamp(24px, 4vw, 56px)',
-          width: '100%',
+          gap: 'clamp(16px, 4vw, 56px)',
           maxWidth: 1200,
         }}
       >
@@ -67,6 +62,7 @@ export function NightSection() {
             key={i}
             src={lamp.src}
             alt={`Lámpara PRAO de noche, vista ${i + 1}`}
+            className="max-[880px]:w-[65vw]"
             style={{
               display: 'block',
               width: 'clamp(180px, 28vw, 400px)',

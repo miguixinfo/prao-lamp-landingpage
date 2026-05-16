@@ -12,9 +12,7 @@ export function Footer() {
       <div>© 2026 · Prao Estudio</div>
       <div className="flex gap-8">
         {[
-          ['Instagram', '#'],
           ['Aviso legal', '#'],
-          ['hola@praoestudio.com', 'mailto:hola@praoestudio.com'],
         ].map(([label, href]) => (
           <a
             key={label}

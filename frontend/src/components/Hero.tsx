@@ -1,9 +1,9 @@
 export function Hero() {
   return (
-    <section className="relative min-h-screen grid overflow-hidden" style={{ gridTemplateRows: '1fr auto' }}>
+    <section className="relative min-h-screen max-[880px]:min-h-0 max-[880px]:h-[60vh] grid overflow-hidden" style={{ gridTemplateRows: '1fr auto' }}>
       {/* Background video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-center"
         src="/assets/Definitivo.mp4"
         autoPlay
         muted
@@ -36,8 +36,7 @@ export function Hero() {
 
       {/* Content grid */}
       <div
-        className="relative z-10 grid grid-cols-2 max-[880px]:grid-cols-1 gap-10 items-end min-h-screen"
-        style={{ padding: '140px clamp(24px, 4vw, 60px) 80px' }}
+        className="relative z-10 grid grid-cols-2 max-[880px]:grid-cols-1 gap-10 items-end min-h-screen max-[880px]:min-h-0 pt-[140px] pb-20 px-[clamp(24px,4vw,60px)] max-[880px]:pt-16 max-[880px]:pb-10"
       >
         {/* Eyebrow */}
         <div
