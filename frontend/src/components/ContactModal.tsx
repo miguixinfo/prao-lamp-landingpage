@@ -155,18 +155,16 @@ export function ContactModal({ isOpen, onClose }: Props) {
         {!submitted ? (
           <>
             <h3
-              className="font-display font-light m-0 mb-2"
-              style={{ fontSize: 38, lineHeight: 1.1, letterSpacing: '-0.01em' }}
+              className="font-display font-light m-0 mb-3"
+              style={{ fontSize: 'clamp(30px, 4vw, 42px)', lineHeight: 1.05, letterSpacing: '0.01em', textTransform: 'uppercase' }}
             >
-              La lista de espera
-              <br />
-              está <em className="text-gold">abierta</em>.
+              Reserva tu <em style={{ fontStyle: 'normal', color: '#b9a76f' }}>acceso</em>.
             </h3>
             <p
               className="m-0 mb-9 text-[13px]"
-              style={{ opacity: 0.65, lineHeight: 1.5 }}
+              style={{ opacity: 0.65, lineHeight: 1.6, maxWidth: 320 }}
             >
-              Déjanos cómo encontrarte. Te escribiremos solo cuando tengamos algo que decir.
+              Sé el primero en saber cuándo sale a la venta.
             </p>
 
             <form onSubmit={handleSubmit}>
