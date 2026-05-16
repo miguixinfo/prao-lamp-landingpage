@@ -3,7 +3,7 @@ name: Deploy Landing Page to Cloudflare Pages
 on:
   push:
     branches:
-      - main # O la rama que uses para producción
+      - main
 
 jobs:
   deploy:
@@ -12,70 +12,31 @@ jobs:
       contents: read
       deployments: write
     steps:
-      - name: 📥 Checkout del código
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js (Si usas un framework como React/Astro/Vue)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: 📦 Instalar dependencias
+      - name: Install dependencies
+        working-directory: frontend
         run: npm ci
 
-      - name: 🛠️ Construir la aplicación (Build)
-        run: npm run build # Cambia esto si no requiere build
+      - name: Build
+        working-directory: frontend
+        run: npm run build
         env:
-          # Inyecta la URL de n8n para que el código JS del frontend la compile
-          VITE_CONTACT_WEBHOOK_URL: ${{ secrets.VITE_CONTACT_WEBHOOK_URL }} 
-          VITE_CONTACT_WEBHOOK_USERNAME: ${{ secrets.VITE_CONTACT_WEBHOOK_USERNAME }} 
-          VITE_CONTACT_WEBHOOK_PASSWORD: ${{ secrets.VITE_CONTACT_WEBHOOK_PASSWORD }} 
+          VITE_CONTACT_WEBHOOK_URL: ${{ secrets.VITE_CONTACT_WEBHOOK_URL }}
+          VITE_CONTACT_WEBHOOK_USERNAME: ${{ secrets.VITE_CONTACT_WEBHOOK_USERNAME }}
+          VITE_CONTACT_WEBHOOK_PASSWORD: ${{ secrets.VITE_CONTACT_WEBHOOK_PASSWORD }}
 
-      - name: 🚀 Desplegar en Cloudflare Pages
+      - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'nombre-de-tu-proyecto-en-cloudflare' # Cámbialo por tu nombre real
-          directory: 'dist' # El directorio de salida (ej. dist, build, out, public)
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}name: Deploy Landing Page to Cloudflare Pages
-
-on:
-  push:
-    branches:
-      - main # O la rama que uses para producción
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
-    steps:
-      - name: 📥 Checkout del código
-        uses: actions/checkout@v4
-
-      - name: ⚙️ Setup Node.js (Si usas un framework como React/Astro/Vue)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: 📦 Instalar dependencias
-        run: npm ci
-
-      - name: 🛠️ Construir la aplicación (Build)
-        run: npm run build # Cambia esto si no requiere build
-        env:
-          # Inyecta la URL de n8n para que el código JS del frontend la compile
-          VITE_CONTACT_WEBHOOK_URL: ${{ secrets.VITE_CONTACT_WEBHOOK_URL }} 
-          VITE_CONTACT_WEBHOOK_USERNAME: ${{ secrets.VITE_CONTACT_WEBHOOK_USERNAME }} 
-          VITE_CONTACT_WEBHOOK_PASSWORD: ${{ secrets.VITE_CONTACT_WEBHOOK_PASSWORD }} 
-
-      - name: 🚀 Desplegar en Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'nombre-de-tu-proyecto-en-cloudflare' # Cámbialo por tu nombre real
-          directory: 'dist' # El directorio de salida (ej. dist, build, out, public)
+          projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+          directory: 'frontend/dist'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
