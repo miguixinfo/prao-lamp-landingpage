@@ -156,13 +156,20 @@ export function ProductMemoriaSection() {
         style={{ padding: 'clamp(80px, 10vw, 140px) clamp(24px, 4vw, 60px)' }}
       >
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-          <div style={{ marginBottom: 'clamp(48px, 6vw, 80px)', textAlign: 'center' }}>
+          <div style={{ marginBottom: 'clamp(48px, 6vw, 80px)', textAlign: 'left' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#b9a76f', marginBottom: 20 }}>
               Memoria del objeto · PRAO 001
             </div>
-            <p style={{ fontFamily: 'var(--font-display)', fontWeight: 'normal', fontSize: 'clamp(32px, 4.5vw, 72px)', lineHeight: 1, color: '#b9a76f', margin: 0, letterSpacing: '0.01em', textTransform: 'uppercase' }}>
-              MEMORIA
-            </p>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <p style={{ fontFamily: 'var(--font-display)', fontWeight: 'normal', fontSize: 'clamp(32px, 4.5vw, 72px)', lineHeight: 1, color: '#b9a76f', margin: 0, letterSpacing: '0.01em', textTransform: 'uppercase' }}>
+                MEMORIA
+              </p>
+              <img
+                src="/assets/eat-logo-final.webp"
+                alt="EAT logo"
+                style={{ height: 'clamp(32px, 4.5vw, 72px)', width: 'auto', opacity: 0.85 }}
+              />
+            </div>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(24px, 3vw, 36px)' }}>
