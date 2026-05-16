@@ -39,7 +39,7 @@ export function Navbar() {
         <img
           src="/assets/PRAO LOGO BLANCO.png"
           alt="PRAO Estudio"
-          style={{ height: 32, width: 'auto' }}
+          style={{ height: 24, width: 'auto' }}
         />
 
         {/* Nav links — desktop */}
