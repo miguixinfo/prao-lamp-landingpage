@@ -1,5 +1,5 @@
 const lamps = [
-  { src: '/assets/night-lamp/noche 1.webp', delay: '0s',   duration: '7s'   },
+  { src: '/assets/night-lamp/noche 1.webp', delay: '0s', duration: '7s' },
   { src: '/assets/night-lamp/noche 2.webp', delay: '1.8s', duration: '8.5s' },
   { src: '/assets/night-lamp/noche 3.webp', delay: '0.9s', duration: '6.5s' },
 ]
@@ -14,7 +14,7 @@ export function NightSection() {
         flexDirection: 'column',
         alignItems: 'center',
         padding: 'clamp(60px, 8vw, 100px) clamp(24px, 4vw, 60px) clamp(60px, 8vh, 100px)',
-        gap: 'clamp(48px, 7vh, 80px)',
+        gap: 'clamp(60px, 8vh, 96px)',
         overflow: 'hidden',
       }}
     >
