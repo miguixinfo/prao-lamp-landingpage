@@ -106,13 +106,6 @@ export function ContactModal({ isOpen, onClose }: Props) {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setForm(prev => ({ ...prev, [field]: e.target.value }))
 
-  const focusStyle = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    e.currentTarget.style.borderBottomColor = '#b9a76f'
-  }
-  const blurStyle = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    e.currentTarget.style.borderBottomColor = 'var(--line)'
-  }
-
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center"
@@ -120,8 +113,11 @@ export function ContactModal({ isOpen, onClose }: Props) {
         background: 'color-mix(in oklab, var(--bg) 70%, transparent)',
         backdropFilter: 'blur(20px)',
         opacity: isOpen ? 1 : 0,
+        visibility: isOpen ? 'visible' : 'hidden',
         pointerEvents: isOpen ? 'auto' : 'none',
-        transition: 'opacity 0.4s',
+        transition: isOpen
+          ? 'opacity 0.4s, visibility 0s 0s'
+          : 'opacity 0.4s, visibility 0s 0.4s',
       }}
       onClick={e => { if (e.target === e.currentTarget) onClose() }}
     >
@@ -140,10 +136,8 @@ export function ContactModal({ isOpen, onClose }: Props) {
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center border-none cursor-pointer"
+          className="modal-close-btn absolute top-4 right-4 w-9 h-9 flex items-center justify-center border-none cursor-pointer"
           style={{ background: 'none', color: 'var(--fg)', opacity: 0.6, transition: 'opacity 0.3s' }}
-          onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '1')}
-          onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '0.6')}
           aria-label="Cerrar"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
@@ -174,9 +168,8 @@ export function ContactModal({ isOpen, onClose }: Props) {
                   required
                   value={form.fullName}
                   onChange={handleChange('fullName')}
+                  className="form-input"
                   style={inputStyle}
-                  onFocus={focusStyle}
-                  onBlur={blurStyle}
                 />
               </Field>
               <Field label="Email">
@@ -185,9 +178,8 @@ export function ContactModal({ isOpen, onClose }: Props) {
                   required
                   value={form.email}
                   onChange={handleChange('email')}
+                  className="form-input"
                   style={inputStyle}
-                  onFocus={focusStyle}
-                  onBlur={blurStyle}
                 />
               </Field>
 
@@ -200,25 +192,13 @@ export function ContactModal({ isOpen, onClose }: Props) {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-3 w-full py-[18px] border-none cursor-pointer font-mono text-[11px] tracking-[0.35em] uppercase"
+                className="modal-submit mt-3 w-full py-[18px] border-none cursor-pointer font-mono text-[11px] tracking-[0.35em] uppercase"
                 style={{
                   background: loading ? 'var(--line)' : 'var(--fg)',
                   color: 'var(--bg)',
                   transition: 'background 0.3s, color 0.3s',
                   opacity: loading ? 0.7 : 1,
                   pointerEvents: loading ? 'none' : 'auto',
-                }}
-                onMouseEnter={e => {
-                  if (loading) return
-                  const el = e.currentTarget as HTMLButtonElement
-                  el.style.background = '#b9a76f'
-                  el.style.color = '#0a0a0a'
-                }}
-                onMouseLeave={e => {
-                  if (loading) return
-                  const el = e.currentTarget as HTMLButtonElement
-                  el.style.background = 'var(--fg)'
-                  el.style.color = 'var(--bg)'
                 }}
               >
                 {loading ? 'Enviando...' : 'Enviar'}

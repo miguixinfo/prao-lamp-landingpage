@@ -6,8 +6,6 @@ interface Props {
 
 export function Footer({ onOpenLegal }: Props) {
   const linkStyle = { color: 'inherit', opacity: 0.7, transition: 'opacity 0.3s' } as const
-  const hover = (e: React.MouseEvent<HTMLElement>) => ((e.currentTarget as HTMLElement).style.opacity = '1')
-  const unhover = (e: React.MouseEvent<HTMLElement>) => ((e.currentTarget as HTMLElement).style.opacity = '0.7')
 
   return (
     <footer
@@ -16,7 +14,7 @@ export function Footer({ onOpenLegal }: Props) {
     >
       <div>© 2026 · Prao Estudio</div>
       <div className="flex gap-8 max-[880px]:flex-col max-[880px]:items-center max-[880px]:gap-4">
-        <a href="#" className="no-underline" style={linkStyle} onMouseEnter={hover} onMouseLeave={unhover}>
+        <a href="#" className="footer-link no-underline" style={linkStyle}>
           Instagram
         </a>
         {(['aviso-legal', 'privacidad', 'terminos'] as LegalDoc[]).map((doc) => {
@@ -29,16 +27,14 @@ export function Footer({ onOpenLegal }: Props) {
             <button
               key={doc}
               onClick={() => onOpenLegal(doc)}
-              className="bg-transparent border-none cursor-pointer font-mono text-[10px] tracking-[0.3em] uppercase p-0"
+              className="footer-link bg-transparent border-none cursor-pointer font-mono text-[10px] tracking-[0.3em] uppercase p-0"
               style={linkStyle}
-              onMouseEnter={hover}
-              onMouseLeave={unhover}
             >
               {labels[doc]}
             </button>
           )
         })}
-        <a href="mailto:praostudio@gmail.com" className="no-underline" style={linkStyle} onMouseEnter={hover} onMouseLeave={unhover}>
+        <a href="mailto:praostudio@gmail.com" className="footer-link no-underline" style={linkStyle}>
           praostudio@gmail.com
         </a>
       </div>

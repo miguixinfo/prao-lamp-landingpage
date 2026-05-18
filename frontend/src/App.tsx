@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { ProductMemoriaSection } from './components/ProductMemoriaSection'
@@ -13,6 +13,10 @@ export default function App() {
   const [modalOpen, setModalOpen] = useState(false)
   const [legalDoc, setLegalDoc] = useState<LegalDoc | null>(null)
 
+  const openModal   = useCallback(() => setModalOpen(true), [])
+  const closeModal  = useCallback(() => setModalOpen(false), [])
+  const closeLegal  = useCallback(() => setLegalDoc(null), [])
+
   return (
     <>
       <Navbar />
@@ -21,11 +25,11 @@ export default function App() {
         <ProductMemoriaSection />
         <HorizontalStrip />
         <NightSection />
-        <ContactSection onOpenModal={() => setModalOpen(true)} />
+        <ContactSection onOpenModal={openModal} />
       </main>
       <Footer onOpenLegal={setLegalDoc} />
-      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-      <LegalModal doc={legalDoc} onClose={() => setLegalDoc(null)} />
+      <ContactModal isOpen={modalOpen} onClose={closeModal} />
+      <LegalModal doc={legalDoc} onClose={closeLegal} />
     </>
   )
 }

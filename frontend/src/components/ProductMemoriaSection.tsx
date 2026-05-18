@@ -69,6 +69,7 @@ export function ProductMemoriaSection() {
                   height: '100%',
                   transform: `translateX(-${current * 100}%)`,
                   transition: 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)',
+                  willChange: 'transform',
                 }}
               >
                 {images.map((src, i) => (
@@ -76,6 +77,7 @@ export function ProductMemoriaSection() {
                     <img
                       src={src}
                       alt={`Vista ${i + 1} de la lámpara PRAO`}
+                      loading={i === 0 ? 'eager' : 'lazy'}
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
                   </div>
@@ -167,6 +169,7 @@ export function ProductMemoriaSection() {
               <img
                 src="/assets/eat-logo-final.webp"
                 alt="EAT logo"
+                loading="lazy"
                 style={{ height: 'clamp(24px, 3.38vw, 54px)', width: 'auto', opacity: 0.85 }}
               />
             </div>
@@ -206,8 +209,7 @@ function ArrowButton({ side, onClick, label }: { side: 'left' | 'right'; onClick
     <button
       onClick={onClick}
       aria-label={label}
-      onMouseEnter={e => { const el = e.currentTarget; el.style.background = 'rgba(0,0,0,0.6)'; el.style.borderColor = 'rgba(255,255,255,0.65)' }}
-      onMouseLeave={e => { const el = e.currentTarget; el.style.background = 'rgba(0,0,0,0.28)'; el.style.borderColor = 'rgba(255,255,255,0.3)' }}
+      className="carousel-arrow"
       style={{ position: 'absolute', [side]: 14, top: '50%', transform: 'translateY(-50%)', width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', background: 'rgba(0,0,0,0.28)', backdropFilter: 'blur(8px)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', transition: 'background 0.2s, border-color 0.2s', padding: 0 }}
     >
       {side === 'left'

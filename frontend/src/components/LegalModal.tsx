@@ -138,8 +138,11 @@ export function LegalModal({ doc, onClose }: Props) {
         background: 'rgba(1,0,18,0.7)',
         backdropFilter: 'blur(12px)',
         opacity: isOpen ? 1 : 0,
+        visibility: isOpen ? 'visible' : 'hidden',
         pointerEvents: isOpen ? 'auto' : 'none',
-        transition: 'opacity 0.35s',
+        transition: isOpen
+          ? 'opacity 0.35s, visibility 0s 0s'
+          : 'opacity 0.35s, visibility 0s 0.35s',
       }}
       onClick={e => { if (e.target === e.currentTarget) onClose() }}
     >
@@ -177,9 +180,8 @@ export function LegalModal({ doc, onClose }: Props) {
           <button
             onClick={onClose}
             aria-label="Cerrar"
+            className="modal-close-btn"
             style={{ background: 'none', border: 'none', color: 'var(--fg)', opacity: 0.5, cursor: 'pointer', padding: 8, transition: 'opacity 0.2s', flexShrink: 0 }}
-            onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '1')}
-            onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '0.5')}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
               <path d="M6 6l12 12M18 6L6 18" />

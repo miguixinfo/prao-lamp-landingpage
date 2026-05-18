@@ -15,6 +15,7 @@ export function HorizontalStrip() {
           key={i}
           src={src}
           alt={`PRAO 001 — imagen ${i + 1}`}
+          loading="lazy"
           style={{ flex: '1 1 0', minWidth: 0, height: '100%', objectFit: 'cover', display: 'block', opacity: 0.65 }}
         />
       ))}

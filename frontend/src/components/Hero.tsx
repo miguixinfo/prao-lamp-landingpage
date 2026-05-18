@@ -4,12 +4,15 @@ export function Hero() {
       {/* Background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover object-center"
-        src="/assets/Definitivo.mp4"
         autoPlay
         muted
         loop
         playsInline
-      />
+        poster="/assets/hero-poster.jpg"
+      >
+        <source src="/assets/hero.webm" type="video/webm" />
+        <source src="/assets/hero.mp4" type="video/mp4" />
+      </video>
 
       {/* Vignette */}
       <div

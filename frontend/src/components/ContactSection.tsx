@@ -42,23 +42,11 @@ export function ContactSection({ onOpenModal }: Props) {
 
       <button
         onClick={onOpenModal}
-        className="inline-flex items-center gap-[14px] px-9 py-[22px] font-mono text-[11px] tracking-[0.35em] uppercase cursor-pointer border-none"
+        className="contact-cta inline-flex items-center gap-[14px] px-9 py-[22px] font-mono text-[11px] tracking-[0.35em] uppercase cursor-pointer border-none"
         style={{
           background: 'var(--fg)',
           color: 'var(--bg)',
           transition: 'background 0.3s, color 0.3s, transform 0.3s',
-        }}
-        onMouseEnter={e => {
-          const el = e.currentTarget as HTMLButtonElement
-          el.style.background = '#b9a76f'
-          el.style.color = '#0a0a0a'
-          el.style.transform = 'translateY(-2px)'
-        }}
-        onMouseLeave={e => {
-          const el = e.currentTarget as HTMLButtonElement
-          el.style.background = 'var(--fg)'
-          el.style.color = 'var(--bg)'
-          el.style.transform = 'translateY(0)'
         }}
       >
         Solicitar información

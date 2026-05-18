@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ffprobe -v quiet -print_format json -show_streams -show_format \"c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/Definitivo.mp4\")",
+      "Bash(ffmpeg -i \"c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/Definitivo.mp4\")",
+      "PowerShell(Get-Command ffmpeg -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command ffprobe -ErrorAction SilentlyContinue)",
+      "Bash(npx --yes @ffmpeg-installer/ffmpeg --version)",
+      "Bash(node -e \"console.log\\(require\\('ffmpeg-static'\\)\\)\")",
+      "Bash(c:/miguel/dev/prao-lamp-landingpage/frontend/node_modules/ffmpeg-static/ffmpeg.exe -i c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/Definitivo.mp4)",
+      "Bash(c:/miguel/dev/prao-lamp-landingpage/frontend/node_modules/ffmpeg-static/ffmpeg.exe -i c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/Definitivo.mp4 -ss 0.5 -vframes 1 -vf scale=1280:720 -q:v 4 c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/hero-poster.jpg -y)",
+      "Bash(c:/miguel/dev/prao-lamp-landingpage/frontend/node_modules/ffmpeg-static/ffmpeg.exe -i c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/Definitivo.mp4 -ss 0.5 -vframes 1 -update 1 -vf scale=1280:720 -q:v 4 c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/hero-poster.jpg -y)",
+      "Bash(c:/miguel/dev/prao-lamp-landingpage/frontend/node_modules/ffmpeg-static/ffmpeg.exe -i c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/Definitivo.mp4 -c:v libx264 -crf 28 -preset medium -vf scale=1280:720 -movflags faststart -an c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/hero.mp4 -y)",
+      "Bash(c:/miguel/dev/prao-lamp-landingpage/frontend/node_modules/ffmpeg-static/ffmpeg.exe -i c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/Definitivo.mp4 -c:v libvpx-vp9 -crf 35 -b:v 0 -deadline good -cpu-used 4 -vf scale=1280:720 -an c:/miguel/dev/prao-lamp-landingpage/frontend/public/assets/hero.webm -y)",
+      "Bash(npm uninstall *)"
+    ]
+  }
+}

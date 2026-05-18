@@ -62,6 +62,7 @@ export function NightSection() {
             key={i}
             src={lamp.src}
             alt={`Lámpara PRAO de noche, vista ${i + 1}`}
+            loading="lazy"
             className="max-[880px]:w-[65vw]"
             style={{
               display: 'block',
@@ -69,6 +70,7 @@ export function NightSection() {
               height: 'auto',
               animation: `lamp-float ${lamp.duration} ease-in-out infinite`,
               animationDelay: lamp.delay,
+              willChange: 'transform',
             }}
           />
         ))}
