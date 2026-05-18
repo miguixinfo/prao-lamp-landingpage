@@ -37,7 +37,7 @@ export function NightSection() {
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 'normal',
-            fontSize: 'clamp(32px, 5vw, 80px)',
+            fontSize: 'clamp(24px, 3.75vw, 60px)',
             lineHeight: 1,
             letterSpacing: '0.01em',
             color: '#b9a76f',

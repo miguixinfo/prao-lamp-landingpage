@@ -57,7 +57,7 @@ export function RoomsSection() {
           <h2
             className="font-display font-light m-0"
             style={{
-              fontSize: 'clamp(28px, 3.5vw, 56px)',
+              fontSize: 'clamp(21px, 2.63vw, 42px)',
               lineHeight: 1.15,
               letterSpacing: '0em',
             }}

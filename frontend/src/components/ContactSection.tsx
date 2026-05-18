@@ -23,7 +23,7 @@ export function ContactSection({ onOpenModal }: Props) {
       <h2
         className="font-display font-light m-0 mb-8"
         style={{
-          fontSize: 'clamp(32px, 4.5vw, 72px)',
+          fontSize: 'clamp(24px, 3.38vw, 54px)',
           lineHeight: 1.15,
           letterSpacing: '0em',
           color: '#b9a76f',
