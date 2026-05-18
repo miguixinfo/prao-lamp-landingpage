@@ -53,7 +53,7 @@ export function MemoriaSection() {
               fontFamily: "'Barlow Condensed', sans-serif",
               fontWeight: 800,
               fontStyle: 'italic',
-              fontSize: 'clamp(28px, 3.5vw, 48px)',
+              fontSize: 'clamp(21px, 2.63vw, 36px)',
               lineHeight: 1.1,
               color: 'var(--fg)',
               margin: 0,
@@ -100,7 +100,7 @@ export function MemoriaSection() {
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontWeight: 800,
                     fontStyle: 'italic',
-                    fontSize: 'clamp(40px, 4.5vw, 72px)',
+                    fontSize: 'clamp(30px, 3.38vw, 54px)',
                     lineHeight: 0.9,
                     color: '#b9a76f',
                     letterSpacing: '-0.01em',
@@ -134,7 +134,7 @@ export function MemoriaSection() {
           <p
             style={{
               fontFamily: 'var(--font-script)',
-              fontSize: 'clamp(32px, 4vw, 56px)',
+              fontSize: 'clamp(24px, 3vw, 42px)',
               color: '#b9a76f',
               margin: '0 0 16px',
               lineHeight: 1.2,

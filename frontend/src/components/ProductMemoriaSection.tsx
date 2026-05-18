@@ -69,6 +69,7 @@ export function ProductMemoriaSection() {
                   height: '100%',
                   transform: `translateX(-${current * 100}%)`,
                   transition: 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)',
+                  willChange: 'transform',
                 }}
               >
                 {images.map((src, i) => (
@@ -76,6 +77,7 @@ export function ProductMemoriaSection() {
                     <img
                       src={src}
                       alt={`Vista ${i + 1} de la lámpara PRAO`}
+                      loading={i === 0 ? 'eager' : 'lazy'}
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
                   </div>
@@ -132,14 +134,14 @@ export function ProductMemoriaSection() {
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#b9a76f', marginBottom: 18 }}>
               Lámpara modular · Pieza 001
             </div>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 'normal', fontSize: 'clamp(32px, 3.5vw, 60px)', lineHeight: 1, letterSpacing: '0.01em', color: '#b9a76f', margin: '0 0 20px', textTransform: 'uppercase' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 'normal', fontSize: 'clamp(24px, 2.63vw, 45px)', lineHeight: 1, letterSpacing: '0.01em', color: '#b9a76f', margin: '0 0 20px', textTransform: 'uppercase' }}>
               PRAO 001
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {[
                 'PRAO 001 nace de la inquietud por transformar lo estático en un diálogo constante entre el objeto y quien lo habita.',
-                'Bajo la luz del sol, PRAO 001 se manifiesta como una pieza de arte geométrica, invitando a la exploración táctil y al juego. Al caer la noche, se redescubre a sí misma, adoptando la forma perfecta para proyectar una luz que da sentido a cualquier espacio.',
-                'Esta pieza es el resultado de un meticuloso trabajo de orfebrería contemporánea. Aunque nace de tecnologías de vanguardia — como el acero de alta precisión y la impresión 3D, su alma reside en las horas de diseño detallado y en el ensamblaje exacto de sus nueve componentes. Cada unidad es tratada con la misma devoción que una joya, asegurando que cada encaje sea perfecto y cada artista, intencionada.',
+                'Bajo la luz del sol, esta lámpara se manifiesta como una pieza de arte geométrica, invitando a la exploración táctil y al juego. Al caer la noche, se redescubre a sí misma, adoptando la forma perfecta para proyectar una luz que da sentido a cualquier espacio.',
+                'Esta pieza es el resultado de un meticuloso trabajo de orfebrería contemporánea. Aunque nace de tecnologías de vanguardia, como el acero de alta precisión y la impresión 3D, su alma reside en las horas de diseño detallado y en el ensamblaje exacto de sus nueve componentes. Cada unidad es tratada con la misma devoción que una joya, asegurando que cada encaje sea perfecto y cada arista, intencionada.',
               ].map((text, i) => (
                 <p key={i} style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--fg)', opacity: 0.72, margin: 0, textAlign: 'justify', hyphens: 'auto' }} lang="es">
                   {text}
@@ -161,13 +163,14 @@ export function ProductMemoriaSection() {
               Memoria del objeto · PRAO 001
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <p style={{ fontFamily: 'var(--font-display)', fontWeight: 'normal', fontSize: 'clamp(32px, 4.5vw, 72px)', lineHeight: 1, color: '#b9a76f', margin: 0, letterSpacing: '0.01em', textTransform: 'uppercase' }}>
+              <p style={{ fontFamily: 'var(--font-display)', fontWeight: 'normal', fontSize: 'clamp(24px, 3.38vw, 54px)', lineHeight: 1, color: '#b9a76f', margin: 0, letterSpacing: '0.01em', textTransform: 'uppercase' }}>
                 MEMORIA
               </p>
               <img
                 src="/assets/eat-logo-final.webp"
                 alt="EAT logo"
-                style={{ height: 'clamp(32px, 4.5vw, 72px)', width: 'auto', opacity: 0.85 }}
+                loading="lazy"
+                style={{ height: 'clamp(24px, 3.38vw, 54px)', width: 'auto', opacity: 0.85 }}
               />
             </div>
           </div>
@@ -175,8 +178,8 @@ export function ProductMemoriaSection() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(24px, 3vw, 36px)' }}>
             {[
               'PRAO 001 se crea a través de dos estudiantes de la Escuela de Arquitectura de Toledo. Una lámpara que se define por un contraste técnico de nueve componentes: la solidez estructural del acero de corte preciso y la versatilidad de la manufactura aditiva. Un ejercicio de orfebrería contemporánea donde la pureza del metal y la innovación 3D se ensamblan en un ajuste manual perfecto.',
-              'PRAO 001 no responde directamente a la etiqueta convencional de lámpara: su verdadera esencia es el juego. Es una pieza que pide ser tocada, transformada y explorada constantemente. Bajo un sistema de reglas de ensamble meticulosas, sus componentes despliegan más de 260.000 formas posibles.',
-              'Con nueve piezas y cuatro ranuras. PRAO 001 ofrece más de 260.000 combinaciones geométricas. El juego trasciende la forma al integrar la luz: dos focos magnéticos se activan al imantarse el acero, cerrando el circuito instantáneamente. Un ejercicio de orfebrería técnica donde el usuario diseña tanto el volumen como la atmósfera, convirtiendo cada gesto en una nueva arquitectura.',
+              'Este proyecto no responde directamente a la etiqueta convencional de lámpara: su verdadera esencia es el juego. Es una pieza que pide ser tocada, transformada y explorada constantemente. Bajo un sistema de reglas de ensamble meticulosas, sus componentes despliegan más de 260.000 formas posibles.',
+              'Con nueves piezas y 36 ranuras, la lámpara ofrece múltiples combinaciones geométricas. El juego trasciende la forma al integrar la luz: dos focos magnéticos se activan al imantarse con el acero, cerrando el circuito instantáneamente. Un ejercicio de precisión técnica donde el usuario diseña tanto el volumen como la atmósfera, convirtiendo cada gesto en una nueva arquitectura.',
             ].map((text, i) => (
               <p
                 key={i}
@@ -206,8 +209,7 @@ function ArrowButton({ side, onClick, label }: { side: 'left' | 'right'; onClick
     <button
       onClick={onClick}
       aria-label={label}
-      onMouseEnter={e => { const el = e.currentTarget; el.style.background = 'rgba(0,0,0,0.6)'; el.style.borderColor = 'rgba(255,255,255,0.65)' }}
-      onMouseLeave={e => { const el = e.currentTarget; el.style.background = 'rgba(0,0,0,0.28)'; el.style.borderColor = 'rgba(255,255,255,0.3)' }}
+      className="carousel-arrow"
       style={{ position: 'absolute', [side]: 14, top: '50%', transform: 'translateY(-50%)', width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', background: 'rgba(0,0,0,0.28)', backdropFilter: 'blur(8px)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', transition: 'background 0.2s, border-color 0.2s', padding: 0 }}
     >
       {side === 'left'

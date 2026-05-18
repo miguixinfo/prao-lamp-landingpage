@@ -42,23 +42,32 @@ export function useScrollColor<T extends HTMLElement>(
 
     const from = hexToRgb(colorFrom)
     const to   = hexToRgb(colorTo)
+    let rafId = 0
 
     const update = () => {
-      const rect             = el.getBoundingClientRect()
-      const vh               = window.innerHeight
-      const scrolled         = vh * viewportLead - rect.top
-      const transitionStart  = el.offsetHeight * startFraction
-      const transitionLength = el.offsetHeight * (1 - startFraction)
-      const progress = Math.max(0, Math.min(1, (scrolled - transitionStart) / transitionLength))
-      const color = interpolate(from, to, progress)
-      el.style.background = color
-      document.documentElement.style.setProperty('--bg', color)
+      if (rafId) return
+      rafId = requestAnimationFrame(() => {
+        rafId = 0
+        const rect             = el.getBoundingClientRect()
+        const elHeight         = el.offsetHeight
+        const vh               = window.innerHeight
+        const scrolled         = vh * viewportLead - rect.top
+        const transitionStart  = elHeight * startFraction
+        const transitionLength = elHeight * (1 - startFraction)
+        const progress = Math.max(0, Math.min(1, (scrolled - transitionStart) / transitionLength))
+        const color = interpolate(from, to, progress)
+        el.style.background = color
+        document.documentElement.style.setProperty('--bg', color)
+      })
     }
 
     window.addEventListener('scroll', update, { passive: true })
     update()
 
-    return () => window.removeEventListener('scroll', update)
+    return () => {
+      window.removeEventListener('scroll', update)
+      cancelAnimationFrame(rafId)
+    }
   }, [colorFrom, colorTo, startFraction, viewportLead])
 
   return ref

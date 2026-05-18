@@ -32,7 +32,6 @@ export function Navbar() {
         style={{
           background: 'color-mix(in oklab, var(--bg) 60%, transparent)',
           borderColor: 'var(--line)',
-          transition: 'background 0.1s ease, border-color 0.1s ease',
         }}
       >
         {/* Brand */}
@@ -48,10 +47,8 @@ export function Navbar() {
             <a
               key={label}
               href={href}
-              className="text-[11px] tracking-[0.28em] uppercase no-underline"
+              className="nav-link text-[11px] tracking-[0.28em] uppercase no-underline"
               style={{ color: 'var(--fg)', opacity: 0.7, transition: 'opacity 0.3s' }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = '1')}
-              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = '0.7')}
             >
               {label}
             </a>
@@ -108,10 +105,8 @@ export function Navbar() {
               key={label}
               href={href}
               onClick={handleLinkClick}
-              className="text-[13px] tracking-[0.35em] uppercase no-underline"
+              className="nav-link text-[13px] tracking-[0.35em] uppercase no-underline"
               style={{ color: 'var(--fg)', opacity: 0.75, transition: 'opacity 0.3s' }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = '1')}
-              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = '0.75')}
             >
               {label}
             </a>

@@ -23,7 +23,7 @@ export function ContactSection({ onOpenModal }: Props) {
       <h2
         className="font-display font-light m-0 mb-8"
         style={{
-          fontSize: 'clamp(32px, 4.5vw, 72px)',
+          fontSize: 'clamp(24px, 3.38vw, 54px)',
           lineHeight: 1.15,
           letterSpacing: '0em',
           color: '#b9a76f',
@@ -42,23 +42,11 @@ export function ContactSection({ onOpenModal }: Props) {
 
       <button
         onClick={onOpenModal}
-        className="inline-flex items-center gap-[14px] px-9 py-[22px] font-mono text-[11px] tracking-[0.35em] uppercase cursor-pointer border-none"
+        className="contact-cta inline-flex items-center gap-[14px] px-9 py-[22px] font-mono text-[11px] tracking-[0.35em] uppercase cursor-pointer border-none"
         style={{
           background: 'var(--fg)',
           color: 'var(--bg)',
           transition: 'background 0.3s, color 0.3s, transform 0.3s',
-        }}
-        onMouseEnter={e => {
-          const el = e.currentTarget as HTMLButtonElement
-          el.style.background = '#b9a76f'
-          el.style.color = '#0a0a0a'
-          el.style.transform = 'translateY(-2px)'
-        }}
-        onMouseLeave={e => {
-          const el = e.currentTarget as HTMLButtonElement
-          el.style.background = 'var(--fg)'
-          el.style.color = 'var(--bg)'
-          el.style.transform = 'translateY(0)'
         }}
       >
         Solicitar información

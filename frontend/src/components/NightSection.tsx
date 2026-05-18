@@ -37,7 +37,7 @@ export function NightSection() {
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 'normal',
-            fontSize: 'clamp(32px, 5vw, 80px)',
+            fontSize: 'clamp(24px, 3.75vw, 60px)',
             lineHeight: 1,
             letterSpacing: '0.01em',
             color: '#b9a76f',
@@ -62,6 +62,7 @@ export function NightSection() {
             key={i}
             src={lamp.src}
             alt={`Lámpara PRAO de noche, vista ${i + 1}`}
+            loading="lazy"
             className="max-[880px]:w-[65vw]"
             style={{
               display: 'block',
@@ -69,6 +70,7 @@ export function NightSection() {
               height: 'auto',
               animation: `lamp-float ${lamp.duration} ease-in-out infinite`,
               animationDelay: lamp.delay,
+              willChange: 'transform',
             }}
           />
         ))}
