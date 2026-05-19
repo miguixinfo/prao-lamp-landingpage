@@ -78,15 +78,10 @@ export function ContactModal({ isOpen, onClose }: Props) {
     setError(null)
 
     try {
-      const username = import.meta.env.VITE_CONTACT_WEBHOOK_USERNAME
-      const password = import.meta.env.VITE_CONTACT_WEBHOOK_PASSWORD
-      const auth = btoa(`${username}:${password}`)
-
       const response = await fetch(import.meta.env.VITE_CONTACT_WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Basic ${auth}`,
         },
         body: JSON.stringify(form),
       })
