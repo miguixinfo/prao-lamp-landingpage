@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Gracias por tu interés — PRAO Estudio</title>
-  <!-- Declara soporte explícito de ambos modos para que el cliente no aplique inversión automática -->
-  <meta name="color-scheme" content="light dark">
-  <meta name="supported-color-schemes" content="light dark">
+  <!--
+    "light only" bloquea la inversión automática de Gmail y Apple Mail.
+    Sin esto, Gmail detecta el fondo oscuro y lo transforma a un tono claro.
+  -->
+  <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light">
   <!--[if mso]>
   <noscript>
     <xml>
@@ -18,6 +21,9 @@
   </noscript>
   <![endif]-->
   <style>
+    /* "only light" a nivel CSS: refuerza el meta tag para clientes que leen esta propiedad */
+    :root { color-scheme: only light; }
+
     @font-face {
       font-family: 'Interdimensional';
       src: url('https://www.praostudio.com/assets/Fonts/interdimensional/INTERDIM.TTF') format('truetype');
@@ -25,9 +31,10 @@
       font-style: normal;
     }
 
-    /* Fuerza nuestros colores en modo oscuro del SO.
-       Sin este bloque, Apple Mail / iOS Mail / Samsung Mail
-       aplican su propia inversión encima de los estilos inline. */
+    /*
+      Clientes como Apple Mail / iOS Mail / Samsung Mail que ignoran el meta tag
+      pero sí respetan @media queries: forzamos nuestros colores exactos.
+    */
     @media (prefers-color-scheme: dark) {
       body,
       table[role="presentation"],
@@ -35,34 +42,29 @@
         background-color: #013A4A !important;
         color: #f0ebe0 !important;
       }
-      .card-bg {
-        background-color: rgba(0, 0, 0, 0.15) !important;
-      }
-      .text-primary   { color: #f0ebe0 !important; }
-      .text-secondary { color: #9a9488 !important; }
-      .text-gold      { color: #b9a76f !important; }
-      .link-btn {
-        color: #b9a76f !important;
-        border-color: #b9a76f !important;
-      }
+      .card-bg          { background-color: #01313F !important; }
+      .text-primary     { color: #f0ebe0 !important; }
+      .text-secondary   { color: #9a9488 !important; }
+      .text-gold        { color: #b9a76f !important; }
+      .link-btn         { color: #b9a76f !important; border-color: #b9a76f !important; }
     }
   </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #013A4A; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+<!-- bgcolor: atributo HTML que Gmail respeta por encima del CSS en dark mode -->
+<body bgcolor="#013A4A" style="margin: 0; padding: 0; background-color: #013A4A; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
 
   <!-- Wrapper -->
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #013A4A; min-height: 100vh;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#013A4A" style="background-color: #013A4A; min-height: 100vh;">
     <tr>
-      <td align="center" style="padding: 48px 20px;">
+      <td align="center" style="padding: 48px 20px; background-color: #013A4A;">
 
         <!-- Container -->
         <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="max-width: 560px; width: 100%;">
 
           <!-- ── HEADER ── -->
           <tr>
-            <td style="padding-bottom: 40px; text-align: center;">
+            <td bgcolor="#013A4A" style="padding-bottom: 40px; text-align: center; background-color: #013A4A;">
 
-              <!-- Fallback de texto (visible si la imagen no carga) -->
               <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 400; color: #f0ebe0; letter-spacing: 0.35em; text-transform: uppercase; line-height: 1;">
                 PRAO
               </div>
@@ -75,14 +77,15 @@
 
           <!-- ── LÍNEA SEPARADORA DORADA ── -->
           <tr>
-            <td align="center" style="padding-bottom: 48px;">
+            <td align="center" bgcolor="#013A4A" style="padding-bottom: 48px; background-color: #013A4A;">
               <div style="width: 48px; height: 1px; background-color: #b9a76f; font-size: 0; line-height: 0;">&nbsp;</div>
             </td>
           </tr>
 
           <!-- ── CONTENIDO PRINCIPAL ── -->
           <tr>
-            <td class="card-bg" style="background-color: rgba(0,0,0,0.15); padding: 52px 48px 52px;">
+            <!-- rgba reemplazado por color sólido: rgba(0,0,0,0.15) sobre #013A4A ≈ #01313F -->
+            <td class="card-bg" bgcolor="#01313F" style="background-color: #01313F; padding: 52px 48px 52px;">
 
               <!-- Etiqueta mono -->
               <p class="text-gold" style="font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: 300; color: #b9a76f; letter-spacing: 0.5em; text-transform: uppercase; margin: 0 0 32px 0; text-align: center;">
@@ -95,8 +98,8 @@
                 <em class="text-gold" style="color: #b9a76f; font-style: italic;">interés</em>
               </h1>
 
-              <!-- Separador fino -->
-              <div style="width: 100%; height: 1px; background-color: rgba(255,255,255,0.10); margin: 0 0 32px 0; font-size: 0; line-height: 0;">&nbsp;</div>
+              <!-- Separador fino: rgba(255,255,255,0.10) sobre #01313F ≈ #1A4652 -->
+              <div style="width: 100%; height: 1px; background-color: #1A4652; margin: 0 0 32px 0; font-size: 0; line-height: 0;">&nbsp;</div>
 
               <!-- Párrafo principal -->
               <p class="text-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 300; color: #f0ebe0; line-height: 1.75; margin: 0 0 20px 0; text-align: center;">
@@ -131,14 +134,15 @@
 
           <!-- ── SEPARADOR ── -->
           <tr>
-            <td align="center" style="padding: 40px 0 0 0;">
-              <div style="width: 48px; height: 1px; background-color: rgba(185,167,111,0.35); font-size: 0; line-height: 0;">&nbsp;</div>
+            <td align="center" bgcolor="#013A4A" style="padding: 40px 0 0 0; background-color: #013A4A;">
+              <!-- rgba(185,167,111,0.35) sobre #013A4A ≈ #415f56 -->
+              <div style="width: 48px; height: 1px; background-color: #415f56; font-size: 0; line-height: 0;">&nbsp;</div>
             </td>
           </tr>
 
           <!-- ── FOOTER ── -->
           <tr>
-            <td style="padding: 32px 0 0 0; text-align: center;">
+            <td bgcolor="#013A4A" style="padding: 32px 0 0 0; text-align: center; background-color: #013A4A;">
 
               <p class="text-secondary" style="font-family: 'Courier New', Courier, monospace; font-size: 9px; font-weight: 300; color: #9a9488; letter-spacing: 0.45em; text-transform: uppercase; margin: 0 0 12px 0;">
                 PRAO STUDIO
