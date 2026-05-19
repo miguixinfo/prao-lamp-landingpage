@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Gracias por tu interés — PRAO Estudio</title>
+  <!-- Declara soporte explícito de ambos modos para que el cliente no aplique inversión automática -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
   <!--[if mso]>
   <noscript>
     <xml>
@@ -14,6 +17,36 @@
     </xml>
   </noscript>
   <![endif]-->
+  <style>
+    @font-face {
+      font-family: 'Interdimensional';
+      src: url('https://www.praostudio.com/assets/Fonts/interdimensional/INTERDIM.TTF') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Fuerza nuestros colores en modo oscuro del SO.
+       Sin este bloque, Apple Mail / iOS Mail / Samsung Mail
+       aplican su propia inversión encima de los estilos inline. */
+    @media (prefers-color-scheme: dark) {
+      body,
+      table[role="presentation"],
+      td {
+        background-color: #013A4A !important;
+        color: #f0ebe0 !important;
+      }
+      .card-bg {
+        background-color: rgba(0, 0, 0, 0.15) !important;
+      }
+      .text-primary   { color: #f0ebe0 !important; }
+      .text-secondary { color: #9a9488 !important; }
+      .text-gold      { color: #b9a76f !important; }
+      .link-btn {
+        color: #b9a76f !important;
+        border-color: #b9a76f !important;
+      }
+    }
+  </style>
 </head>
 <body style="margin: 0; padding: 0; background-color: #013A4A; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
 
@@ -49,30 +82,30 @@
 
           <!-- ── CONTENIDO PRINCIPAL ── -->
           <tr>
-            <td style="background-color: rgba(0,0,0,0.15); padding: 52px 48px 52px;">
+            <td class="card-bg" style="background-color: rgba(0,0,0,0.15); padding: 52px 48px 52px;">
 
               <!-- Etiqueta mono -->
-              <p style="font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: 300; color: #b9a76f; letter-spacing: 0.5em; text-transform: uppercase; margin: 0 0 32px 0; text-align: center;">
+              <p class="text-gold" style="font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: 300; color: #b9a76f; letter-spacing: 0.5em; text-transform: uppercase; margin: 0 0 32px 0; text-align: center;">
                 Preventa
               </p>
 
               <!-- Titular principal -->
-              <h1 style="font-family: Georgia, 'Times New Roman', serif; font-size: 34px; font-weight: 300; color: #f0ebe0; line-height: 1.25; margin: 0 0 28px 0; text-align: center; letter-spacing: 0.01em;">
+              <h1 class="text-primary" style="font-family: 'Interdimensional', Georgia, 'Times New Roman', serif; font-size: 34px; font-weight: normal; color: #f0ebe0; line-height: 1.25; margin: 0 0 28px 0; text-align: center; letter-spacing: 0.01em;">
                 Gracias por tu<br>
-                <em style="color: #b9a76f; font-style: italic;">interés</em>
+                <em class="text-gold" style="color: #b9a76f; font-style: italic;">interés</em>
               </h1>
 
               <!-- Separador fino -->
               <div style="width: 100%; height: 1px; background-color: rgba(255,255,255,0.10); margin: 0 0 32px 0; font-size: 0; line-height: 0;">&nbsp;</div>
 
               <!-- Párrafo principal -->
-              <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 300; color: #f0ebe0; line-height: 1.75; margin: 0 0 20px 0; text-align: center;">
+              <p class="text-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 300; color: #f0ebe0; line-height: 1.75; margin: 0 0 20px 0; text-align: center;">
                 Nos alegra saber que PRAO ha captado tu atención.<br>
                 Estamos preparando algo verdaderamente especial.
               </p>
 
               <!-- Párrafo secundario -->
-              <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 300; color: #9a9488; line-height: 1.75; margin: 0 0 40px 0; text-align: center;">
+              <p class="text-secondary" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 300; color: #9a9488; line-height: 1.75; margin: 0 0 40px 0; text-align: center;">
                 En cuanto la lámpara esté disponible para la venta,<br>
                 serás el primero en saberlo.<br>
                 Te enviaremos un aviso directamente a este correo.
@@ -83,6 +116,7 @@
                 <tr>
                   <td style="text-align: center;">
                     <a
+                      class="link-btn"
                       href="https://www.praostudio.com"
                       style="display: inline-block; padding: 14px 36px; border: 1px solid #b9a76f; color: #b9a76f; text-decoration: none; font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: 300; letter-spacing: 0.4em; text-transform: uppercase; -webkit-text-size-adjust: none;"
                     >
@@ -106,11 +140,11 @@
           <tr>
             <td style="padding: 32px 0 0 0; text-align: center;">
 
-              <p style="font-family: 'Courier New', Courier, monospace; font-size: 9px; font-weight: 300; color: #9a9488; letter-spacing: 0.45em; text-transform: uppercase; margin: 0 0 12px 0;">
+              <p class="text-secondary" style="font-family: 'Courier New', Courier, monospace; font-size: 9px; font-weight: 300; color: #9a9488; letter-spacing: 0.45em; text-transform: uppercase; margin: 0 0 12px 0;">
                 PRAO STUDIO
               </p>
 
-              <p style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 300; color: #9a9488; line-height: 1.6; margin: 0; opacity: 0.7;">
+              <p class="text-secondary" style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 300; color: #9a9488; line-height: 1.6; margin: 0; opacity: 0.7;">
                 Has recibido este correo porque solicitaste información<br>
                 sobre nuestro producto a través de nuestra web.
               </p>
