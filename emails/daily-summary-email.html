@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Resumen Diario — Preventa PRAO Estudio</title>
+  <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light">
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <style>
+    :root { color-scheme: only light; }
+
+    @font-face {
+      font-family: 'Interdimensional';
+      src: url('https://www.praostudio.com/assets/Fonts/interdimensional/INTERDIM.TTF') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body,
+      table[role="presentation"],
+      td {
+        background-color: #013A4A !important;
+        color: #f0ebe0 !important;
+      }
+      .card-bg        { background-color: #01313F !important; }
+      .row-alt        { background-color: #012830 !important; }
+      .text-primary   { color: #f0ebe0 !important; }
+      .text-secondary { color: #9a9488 !important; }
+      .text-gold      { color: #b9a76f !important; }
+      .border-subtle  { border-color: #1A4652 !important; }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .container      { width: 100% !important; }
+      .card-padding   { padding: 36px 24px 36px !important; }
+      .col-name       { width: 50% !important; }
+      .col-email      { width: 50% !important; }
+    }
+  </style>
+</head>
+
+<!-- ─────────────────────────────────────────────────────────────────────────
+     DAILY SUMMARY EMAIL — PRAO ESTUDIO
+     Variables para n8n:
+       {{fecha}}         → fecha del resumen (ej. "21 de mayo de 2026")
+       {{total}}         → número total de suscriptores
+       {{#each suscriptores}}
+         {{nombre}}      → nombre del suscriptor
+         {{correo}}      → correo del suscriptor
+       {{/each}}
+──────────────────────────────────────────────────────────────────────────── -->
+
+<body bgcolor="#013A4A" style="margin: 0; padding: 0; background-color: #013A4A; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+
+  <!-- Wrapper -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#013A4A" style="background-color: #013A4A; min-height: 100vh;">
+    <tr>
+      <td align="center" style="padding: 48px 20px; background-color: #013A4A;">
+
+        <!-- Container -->
+        <table class="container" role="presentation" cellpadding="0" cellspacing="0" border="0" style="max-width: 620px; width: 100%;">
+
+          <!-- ── HEADER ── -->
+          <tr>
+            <td bgcolor="#013A4A" style="padding-bottom: 40px; text-align: center; background-color: #013A4A;">
+              <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 400; color: #f0ebe0; letter-spacing: 0.35em; text-transform: uppercase; line-height: 1;">
+                PRAO
+              </div>
+              <div style="font-family: 'Courier New', Courier, monospace; font-size: 9px; font-weight: 300; color: #9a9488; letter-spacing: 0.5em; text-transform: uppercase; margin-top: 5px;">
+                STUDIO
+              </div>
+            </td>
+          </tr>
+
+          <!-- ── LÍNEA DORADA ── -->
+          <tr>
+            <td align="center" bgcolor="#013A4A" style="padding-bottom: 48px; background-color: #013A4A;">
+              <div style="width: 48px; height: 1px; background-color: #b9a76f; font-size: 0; line-height: 0;">&nbsp;</div>
+            </td>
+          </tr>
+
+          <!-- ── TARJETA PRINCIPAL ── -->
+          <tr>
+            <td class="card-bg card-padding" bgcolor="#01313F" style="background-color: #01313F; padding: 52px 48px 52px;">
+
+              <!-- Etiqueta mono superior -->
+              <p class="text-gold" style="font-family: 'Courier New', Courier, monospace; font-size: 10px; font-weight: 300; color: #b9a76f; letter-spacing: 0.5em; text-transform: uppercase; margin: 0 0 12px 0; text-align: center;">
+                Resumen Diario
+              </p>
+
+              <!-- Fecha — sustituir con {{fecha}} en n8n -->
+              <p class="text-secondary" style="font-family: 'Courier New', Courier, monospace; font-size: 9px; font-weight: 300; color: #9a9488; letter-spacing: 0.4em; text-transform: uppercase; margin: 0 0 32px 0; text-align: center;">
+                {{fecha}}
+              </p>
+
+              <!-- Titular -->
+              <h1 class="text-primary" style="font-family: 'Interdimensional', Georgia, 'Times New Roman', serif; font-size: 30px; font-weight: normal; color: #f0ebe0; line-height: 1.25; margin: 0 0 36px 0; text-align: center; letter-spacing: 0.01em;">
+                Suscriptores<br>
+                <em class="text-gold" style="color: #b9a76f; font-style: italic;">Preventa</em>
+              </h1>
+
+              <!-- Separador fino -->
+              <div style="width: 100%; height: 1px; background-color: #1A4652; margin: 0 0 32px 0; font-size: 0; line-height: 0;">&nbsp;</div>
+
+              <!-- Stat: total -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 40px;">
+                <tr>
+                  <td align="center">
+                    <!-- Número total — sustituir con {{total}} en n8n -->
+                    <div class="text-primary" style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; font-weight: 400; color: #f0ebe0; line-height: 1; letter-spacing: -0.01em;">
+                      {{total}}
+                    </div>
+                    <div class="text-secondary" style="font-family: 'Courier New', Courier, monospace; font-size: 9px; font-weight: 300; color: #9a9488; letter-spacing: 0.45em; text-transform: uppercase; margin-top: 10px;">
+                      suscriptores totales
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Separador -->
+              <div style="width: 100%; height: 1px; background-color: #1A4652; margin: 0 0 0 0; font-size: 0; line-height: 0;">&nbsp;</div>
+
+              <!-- ── TABLA DE SUSCRIPTORES ── -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+
+                <!-- Cabecera -->
+                <tr>
+                  <td class="col-name" style="width: 45%; padding: 14px 16px 14px 0;">
+                    <span style="font-family: 'Courier New', Courier, monospace; font-size: 9px; font-weight: 300; color: #b9a76f; letter-spacing: 0.45em; text-transform: uppercase;">
+                      Nombre
+                    </span>
+                  </td>
+                  <td class="col-email" style="width: 55%; padding: 14px 0 14px 16px; border-left: 1px solid #1A4652;">
+                    <span style="font-family: 'Courier New', Courier, monospace; font-size: 9px; font-weight: 300; color: #b9a76f; letter-spacing: 0.45em; text-transform: uppercase;">
+                      Correo
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- Separador bajo cabecera -->
+                <tr>
+                  <td colspan="2" style="padding: 0; font-size: 0; line-height: 0;">
+                    <div style="width: 100%; height: 1px; background-color: #b9a76f; opacity: 0.35; font-size: 0; line-height: 0;">&nbsp;</div>
+                  </td>
+                </tr>
+
+                <!-- ── FILAS DE DATOS ──────────────────────────────────────────
+                     En n8n, reemplazar estas filas con un bucle:
+                     {{#each suscriptores}}
+                     <tr style="...">
+                       <td>{{nombre}}</td>
+                       <td>{{correo}}</td>
+                     </tr>
+                     {{/each}}
+                ─────────────────────────────────────────────────────────────── -->
+
+                <!-- Fila ejemplo 1 (par) -->
+                <tr style="background-color: transparent;">
+                  <td style="padding: 14px 16px 14px 0; border-bottom: 1px solid #1A4652;">
+                    <span class="text-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 300; color: #f0ebe0; line-height: 1.4;">
+                      {{nombre}}
+                    </span>
+                  </td>
+                  <td style="padding: 14px 0 14px 16px; border-bottom: 1px solid #1A4652; border-left: 1px solid #1A4652;">
+                    <span class="text-secondary" style="font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: 300; color: #9a9488; line-height: 1.4;">
+                      {{correo}}
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- Fila ejemplo 2 (impar — fondo ligeramente diferente) -->
+                <tr class="row-alt" style="background-color: #012830;">
+                  <td style="padding: 14px 16px 14px 0; border-bottom: 1px solid #1A4652;">
+                    <span class="text-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 300; color: #f0ebe0; line-height: 1.4;">
+                      {{nombre}}
+                    </span>
+                  </td>
+                  <td style="padding: 14px 0 14px 16px; border-bottom: 1px solid #1A4652; border-left: 1px solid #1A4652;">
+                    <span class="text-secondary" style="font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: 300; color: #9a9488; line-height: 1.4;">
+                      {{correo}}
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- Fila ejemplo 3 (par) -->
+                <tr style="background-color: transparent;">
+                  <td style="padding: 14px 16px 14px 0; border-bottom: 1px solid #1A4652;">
+                    <span class="text-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 300; color: #f0ebe0; line-height: 1.4;">
+                      {{nombre}}
+                    </span>
+                  </td>
+                  <td style="padding: 14px 0 14px 16px; border-bottom: 1px solid #1A4652; border-left: 1px solid #1A4652;">
+                    <span class="text-secondary" style="font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: 300; color: #9a9488; line-height: 1.4;">
+                      {{correo}}
+                    </span>
+                  </td>
+                </tr>
+
+              </table>
+              <!-- ── FIN TABLA DE SUSCRIPTORES ── -->
+
+            </td>
+          </tr>
+
+          <!-- ── SEPARADOR ── -->
+          <tr>
+            <td align="center" bgcolor="#013A4A" style="padding: 40px 0 0 0; background-color: #013A4A;">
+              <div style="width: 48px; height: 1px; background-color: #415f56; font-size: 0; line-height: 0;">&nbsp;</div>
+            </td>
+          </tr>
+
+          <!-- ── FOOTER ── -->
+          <tr>
+            <td bgcolor="#013A4A" style="padding: 32px 0 0 0; text-align: center; background-color: #013A4A;">
+
+              <p class="text-secondary" style="font-family: 'Courier New', Courier, monospace; font-size: 9px; font-weight: 300; color: #9a9488; letter-spacing: 0.45em; text-transform: uppercase; margin: 0 0 12px 0;">
+                PRAO STUDIO
+              </p>
+
+              <p class="text-secondary" style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 300; color: #9a9488; line-height: 1.6; margin: 0; opacity: 0.7;">
+                Resumen generado automáticamente · Uso interno
+              </p>
+
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
